@@ -1,7 +1,12 @@
 let quizDataPath = "https://quizizz.com/api/main/quiz/";
-let quizData = getQuizData();
-let questionData = quizData.data.quiz.info.questions;
+let quizData;
+let questionData;
 let prevUrl = "";
+
+if (getCookie("hackId") != "") {
+    quizData = getQuizData();
+    questionData = quizData.data.quiz.info.questions;
+}
 
 let currentUrl = window.location.href;
 if (prevUrl != currentUrl) {
